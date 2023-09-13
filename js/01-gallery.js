@@ -23,10 +23,12 @@ gallery.addEventListener('click', handleClick);
   
 function handleClick(event) {
   event.preventDefault();
+  if (event.target.tagName === 'IMG') {
     const source = event.target.dataset.source;
     const description = event.target.alt;
-  const instance = basicLightBox.create(`
+    const instance = basicLightBox.create(`
   <div class = "box"><img class ="gallery__image" src="${source}" alt="${description}"></div>`);
-  instance.show();
+    instance.show();
+  }
 }
 
